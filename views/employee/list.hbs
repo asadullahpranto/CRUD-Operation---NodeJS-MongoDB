@@ -1,0 +1,33 @@
+
+<nav class="navbar navbar-light bg-success justify-content-between">
+  <a class="navbar-brand"><h3 class="text-white">Employee List</h3></a>
+  <form class="form-inline">
+    <a class="btn btn-secondary" href="/employee"><i class="fa fa-plus" aria-hidden="true"></i> Add New</a>
+  </form>
+</nav>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>City</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.fullName}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.mobile}}</td>
+            <td>{{this.city}}</td>
+            <td>
+                <a href="/employee/{{this._id}}" title="Edit"><button class="btn btn-sm btn-info"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
+                <a href="/employee/delete/{{this._id}}" title="Delete" onclick="return confirm('Are you sure to delete this record ?');"><button class="btn btn-sm btn-danger"><i class="fas fa-trash" aria-hidden="true"></i></button></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
